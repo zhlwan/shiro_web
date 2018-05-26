@@ -14,6 +14,7 @@ public class UserController {
         System.out.println("第一次修改");
         System.out.println("第二次修改");
         System.out.println("洪磊的第一次提交 ");
+        System.out.println("好帅的提交代码");
         return "index";
     }
 
