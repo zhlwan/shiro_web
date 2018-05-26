@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.RoleDao">
+
+    <resultMap id="map2" type="role">
+        <result column="role_name" property="role_name"/>
+        <collection property="resources" ofType="Cmfz_Resource">
+            <result column="resource_name" property="resource_name"/>
+        </collection>
+    </resultMap>
+
+    <insert id="insert" parameterType="role">
+        insert into cmfz_role values (#{id},#{role_name},#{beiy})
+    </insert>
+
+    <select id="selectAllRoleResource" parameterType="String" resultMap="map2">
+        select s.role_name,h.resource_name from cmfz_role s left join role_resource_middle n on s.id=n.role_id
+        left join cmfz_resource h on h.id=n.resource_id where s.role_name=#{roleName}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

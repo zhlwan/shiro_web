@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AdminDao">
+    <resultMap id="map1" type="admin">
+        <result column="name" property="name"/>
+        <collection property="role" ofType="role">
+            <result column="role_name" property="role_name"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectStringOne" resultType="admin" parameterType="String">
+        select * from cmfz_admin where name=#{name}
+    </select>
+
+    <insert id="insert" parameterType="admin">
+        insert into cmfz_admin values (#{id},#{name},#{password},#{salt},#{status},#{time})
+    </insert>
+
+    <select id="selectAllRole" parameterType="String" resultMap="map1">
+        select s.name,h.role_name from cmfz_admin s left join admin_role_middle n on s.id=n.admin_id
+        left join cmfz_role h on h.id=n.role_id where s.name=#{adminName}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

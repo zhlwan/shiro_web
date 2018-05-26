@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.Cmfz_ResourceDao">
+
+    <!--
+
+        <select id="selectStringOne" resultType="admin" parameterType="String">
+              select * from  cmfz_admin where name=#{name}
+        </select>
+    -->
+
+    <insert id="insert" parameterType="Cmfz_Resource">
+        insert into cmfz_resource values (#{id},#{resource_name},#{beiy})
+    </insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
